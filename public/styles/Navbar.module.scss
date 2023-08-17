@@ -1,0 +1,22 @@
+.navbar {
+  background-color: rgb(91, 172, 73);
+  padding: 0.5rem;
+}
+
+.links {
+  display: flex;
+  justify-content: end;
+  list-style: none;
+}
+
+.link {
+  color: rgb(239, 242, 235);
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 2rem;
+  transition: 0.2s;
+
+  &:hover {
+    color: rgb(167, 202, 84);
+  }
+}
