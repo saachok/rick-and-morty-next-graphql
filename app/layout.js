@@ -10,7 +10,7 @@ export const metadata = {
     'This project is built using Next.js and Apollo Client to interact with the Rick and Morty API. It allows users to explore characters, episodes, and locations from the popular TV series "Rick and Morty."',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>

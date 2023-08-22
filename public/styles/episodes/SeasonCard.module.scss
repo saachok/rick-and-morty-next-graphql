@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(31, 140, 68);
+  background-image: url('/rick-and-morty-bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+  p {
+    font-size: 20px;
+  }
+}
