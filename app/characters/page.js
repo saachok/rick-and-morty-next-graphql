@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { client } from '../../graphql/graphql-client';
 import getCharactersQuery from '@/graphql/queries/characters/getCharacters';
 import CharacterCard from '@/components/characters/CharacterCard';
@@ -12,7 +13,9 @@ export default async function Characters() {
     <main className={styles.container}>
       {results ? (
         results.map(({ id, name, image, species }) => (
-          <CharacterCard key={id} {...{ name, image, species }} />
+          <Link key={id} href={`/characters/${id}`}>
+            <CharacterCard {...{ name, image, species }} />
+          </Link>
         ))
       ) : (
         <h1>That&apos;s Characters page!</h1>
@@ -20,24 +23,3 @@ export default async function Characters() {
     </main>
   );
 }
-
-// export async function getStaticProps() {
-//   const { data } = await client.query({
-//     query: gql`
-//       query Query {
-//         characters {
-//           results {
-//             id
-//             name
-//           }
-//         }
-//       }
-//     `,
-//   });
-
-//   return {
-//     props: {
-//       characters: data.characters.results,
-//     },
-//   };
-// }
