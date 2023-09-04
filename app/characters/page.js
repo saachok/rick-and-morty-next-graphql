@@ -13,7 +13,7 @@ export default async function Characters() {
     <main className={styles.container}>
       {results ? (
         results.map(({ id, name, image, species }) => (
-          <Link key={id} href={`/characters/${id}`}>
+          <Link className={styles.link} key={id} href={`/characters/${id}`}>
             <CharacterCard {...{ name, image, species }} />
           </Link>
         ))
