@@ -1,0 +1,29 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(13, 13, 13, 0.3);
+  border-radius: 8px;
+  font-size: 24px;
+  color: rgb(13, 13, 13);
+  background-color: inherit;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(167, 202, 84);
+    border-color: rgb(31, 140, 68);
+  }
+
+  &:disabled {
+    cursor: default;
+    color: rgba(13, 13, 13, 0.15);
+    border: 2px solid rgba(13, 13, 13, 0.15);
+  }
+}
+
+.active {
+  border-color: rgb(31, 140, 68);
+}
