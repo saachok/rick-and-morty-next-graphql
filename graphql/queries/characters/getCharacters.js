@@ -1,8 +1,8 @@
 import { gql } from 'graphql-request';
 
 const getCharactersQuery = gql`
-  query GetCharactersQuery {
-    characters {
+  query getCharactersQuery($page: Int) {
+    characters(page: $page) {
       results {
         id
         name
