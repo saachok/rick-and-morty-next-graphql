@@ -59,7 +59,7 @@ export default function Characters() {
         <>
           <div className={styles.grid}>
             {characters.map(({ id, name, image, species }) => (
-              <Link className={styles.link} key={id} href={`/characters/${id}`}>
+              <Link className={styles.link} key={id} href={`/character/${id}`}>
                 <CharacterCard {...{ name, image, species }} />
               </Link>
             ))}
