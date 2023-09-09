@@ -10,9 +10,9 @@ const CharacterDetails = async props => {
   });
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <CharacterInfo {...character} />
-    </div>
+    </main>
   );
 };
 
