@@ -9,6 +9,7 @@ export default function Episodes() {
   while (i <= 6) {
     seasons.push({
       seasonIndex: i,
+      // FIXME: airDate and episodes variables weren't used in the rest part of the code
       airDate: 'Release date',
       episodes: 16,
     });
@@ -17,16 +18,13 @@ export default function Episodes() {
 
   return (
     <main className={styles.container}>
-      {seasons ? (
-        seasons.map(({ seasonIndex, airDate, episodes }) => (
-          <SeasonCard
-            key={seasonIndex}
-            {...{ seasonIndex, airDate, episodes }}
-          />
-        ))
-      ) : (
-        <h1>That&apos;s Episodes page!</h1>
-      )}
+      <div className={styles.grid}>
+        {seasons.map(({ seasonIndex, airDate, episodes }) => (
+          <div className={styles['grid-item']} key={seasonIndex}>
+            <SeasonCard {...{ seasonIndex, airDate, episodes }} />
+          </div>
+        ))}
+      </div>
     </main>
   );
 }

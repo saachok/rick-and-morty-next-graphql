@@ -1,8 +1,8 @@
 .wrapper {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
 
 .container {
@@ -19,28 +19,28 @@
 .spinner {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
   display: inline-block;
   position: relative;
+  border-radius: 50%;
+  box-sizing: border-box;
   background: linear-gradient(
     0deg,
     rgba(91, 172, 73, 0.2) 33%,
     rgb(31, 140, 68) 100%
   );
-  box-sizing: border-box;
   animation: rotation 1s linear infinite;
 
   &::after {
     content: '';
-    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    width: 22px;
-    height: 22px;
+    box-sizing: border-box;
     border-radius: 50%;
     background: rgb(239, 242, 235);
+    transform: translate(-50%, -50%);
   }
 }
 

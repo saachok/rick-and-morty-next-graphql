@@ -1,11 +1,13 @@
+@import '../breakpoints';
+
 .container {
+  height: 355px;
+  width: 266px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   padding-top: 8px;
-  height: 380px;
   border-radius: 1rem;
-  // border: 2px solid black;
   background-color: rgb(91, 172, 73);
   transition: 0.2s ease;
 
@@ -14,18 +16,38 @@
   }
 }
 
+.image {
+  border-radius: 1rem;
+}
+
 .text-info {
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 100%;
+  flex-direction: column;
 }
 
 .name {
   text-align: center;
+  font-size: 24px;
 }
 
-.image {
-  border-radius: 1rem;
+.species {
+  font-size: 20px;
+}
+
+@media (min-width: $sm) {
+  .container {
+    height: 380px;
+    width: 266px;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .species {
+    font-size: 24px;
+  }
 }

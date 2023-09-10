@@ -1,16 +1,35 @@
+@import '../breakpoints';
+
 .container {
+  height: 200px;
+  width: 350px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   border-radius: 1rem;
-  border: 2px solid rgb(31, 140, 68);
+  border: 1px solid rgb(31, 140, 68);
   background-image: url('/assets/rick-and-morty-bg.jpg');
   background-size: cover;
   background-position: center;
+  cursor: pointer;
+  transition: 0.2s;
 
-  p {
-    font-size: 20px;
+  .season {
+    font-size: 30px;
+    transition: inherit;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    .season {
+      font-size: 34px;
+    }
+  }
+}
+
+@media (min-width: $sm) {
+  .container {
+    height: 250px;
+    width: 400px;
   }
 }

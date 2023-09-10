@@ -1,19 +1,25 @@
 .navbar {
+  height: inherit;
   background-color: rgb(91, 172, 73);
-  padding: 0.5rem;
+  display: grid;
+  height: inherit;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .links {
+  grid-column-start: 3;
   display: flex;
   justify-content: end;
+  align-items: center;
+  margin-right: 1rem;
   list-style: none;
 }
 
 .link {
   color: rgb(239, 242, 235);
   text-decoration: none;
-  font-size: 20px;
-  margin-right: 2rem;
+  font-size: 24px;
+  margin: 0 1rem;
   transition: 0.2s;
 
   &:hover {

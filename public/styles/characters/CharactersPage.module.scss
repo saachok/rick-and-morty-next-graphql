@@ -1,20 +1,50 @@
+@import '../breakpoints';
+
 .container {
-  padding-bottom: 2rem;
+  height: 100%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: rgb(239, 242, 235);
 
   &:hover {
     color: rgb(167, 202, 84);
+  }
+}
+
+@media (min-width: $sm) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: $md) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $lg) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: $xl) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

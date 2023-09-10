@@ -1,9 +1,46 @@
+@import '../breakpoints';
+
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
-  // display: flex;
-  // flex-wrap: wrap;
-  height: 94vh;
+  height: 100%;
+}
+
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  padding: 4rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+  .grid-item {
+    @include center-content();
+  }
+}
+
+@media (min-width: $sm) {
+  .grid {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: $md) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: $xl) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .container {
+    @include center-content();
+  }
 }

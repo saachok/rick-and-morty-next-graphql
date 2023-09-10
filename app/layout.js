@@ -1,8 +1,7 @@
 import '../public/styles/globals.scss';
-import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 
-const inter = Inter({ subsets: ['latin'] });
+import styles from '../public/styles/layout.module.scss';
 
 export const metadata = {
   title: 'Rick and Morty GraphQL App',
@@ -13,9 +12,14 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
+      <body className={styles.body}>
+        <main className={styles.main}>
+          <div className={styles.navbar}>
+            <Navbar />
+          </div>
+          <div>{children}</div>
+          <h1 className={styles.footer}>Footer</h1>
+        </main>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ const CharacterCard = ({ name, image, species }) => {
       />
       <div className={styles['text-info']}>
         <h1 className={styles.name}>{name}</h1>
-        <h2>{species}</h2>
+        <h2 className={styles.species}>{species}</h2>
       </div>
     </div>
   );
