@@ -3,20 +3,6 @@
 .navbar {
   height: inherit;
   background-color: rgb(91, 172, 73);
-<<<<<<< HEAD
-  display: grid;
-  height: inherit;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.links {
-  grid-column-start: 3;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  margin-right: 1rem;
-  list-style: none;
-=======
   display: flex;
   justify-content: end;
   align-items: center;
@@ -73,7 +59,6 @@
 
 .links {
   display: none;
->>>>>>> feat/layout-update
 }
 
 .link {

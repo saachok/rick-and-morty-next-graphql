@@ -16,14 +16,4 @@
 
 .footer {
   height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: rgb(239, 242, 235);
-  background-color: rgb(91, 172, 73);
-
-  &:hover {
-    color: rgb(167, 202, 84);
-  }
 }

@@ -2,6 +2,7 @@ import '../public/styles/globals.scss';
 import Navbar from '@/components/Navbar';
 
 import styles from '../public/styles/layout.module.scss';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Rick and Morty GraphQL App',
@@ -18,7 +19,9 @@ export default async function RootLayout({ children }) {
             <Navbar />
           </div>
           <div>{children}</div>
-          <h1 className={styles.footer}>Footer</h1>
+          <div className={styles.footer}>
+            <Footer />
+          </div>
         </main>
       </body>
     </html>

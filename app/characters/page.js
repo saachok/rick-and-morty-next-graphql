@@ -63,7 +63,7 @@ export default function Characters() {
               </Link>
             ))}
           </div>
-          {/* <CharactersPagination pageNumber={pageNumber} goToPage={goToPage} /> */}
+          <CharactersPagination pageNumber={pageNumber} goToPage={goToPage} />
         </>
       ) : (
         <Loading />

@@ -1,0 +1,14 @@
+.container {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: rgb(239, 242, 235);
+  background-color: rgb(91, 172, 73);
+
+  &:hover {
+    color: rgb(167, 202, 84);
+  }
+}
