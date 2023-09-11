@@ -32,7 +32,6 @@ export default function Characters() {
   }, [pageNumber]);
 
   useEffect(() => {
-    console.log(pageNumber);
     setIsLoading(true);
     fetchCharacters()
       .then(data => {
@@ -64,7 +63,7 @@ export default function Characters() {
               </Link>
             ))}
           </div>
-          <CharactersPagination pageNumber={pageNumber} goToPage={goToPage} />
+          {/* <CharactersPagination pageNumber={pageNumber} goToPage={goToPage} /> */}
         </>
       ) : (
         <Loading />
