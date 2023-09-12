@@ -9,6 +9,9 @@ const getCharactersQuery = gql`
         image
         species
       }
+      info {
+        pages
+      }
     }
   }
 `;

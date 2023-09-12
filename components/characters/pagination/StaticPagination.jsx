@@ -1,6 +1,6 @@
 import PaginationButton from '@/components/UI/PaginationButton';
 
-const StaticPagination = ({ pageNumber, goToPage }) => {
+const StaticPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   const FirstPages = () => {
     const firstButtons = [];
     for (let i = 1; i <= 7; i++) {
@@ -18,14 +18,16 @@ const StaticPagination = ({ pageNumber, goToPage }) => {
       <>
         {firstButtons.map(btn => btn)}
         <PaginationButton onClick={() => goToPage(8)}>...</PaginationButton>
-        <PaginationButton onClick={() => goToPage(42)}>42</PaginationButton>
+        <PaginationButton onClick={() => goToPage(pagesTotal)}>
+          {pagesTotal}
+        </PaginationButton>
       </>
     );
   };
 
   const LastPages = () => {
     const lastButtons = [];
-    for (let i = 36; i <= 42; i++) {
+    for (let i = pagesTotal - 6; i <= pagesTotal; i++) {
       lastButtons.push(
         <PaginationButton
           key={i}
@@ -39,7 +41,9 @@ const StaticPagination = ({ pageNumber, goToPage }) => {
     return (
       <>
         <PaginationButton onClick={() => goToPage(1)}>1</PaginationButton>
-        <PaginationButton onClick={() => goToPage(35)}>...</PaginationButton>
+        <PaginationButton onClick={() => goToPage(pagesTotal - 7)}>
+          ...
+        </PaginationButton>
         {lastButtons.map(btn => btn)}
       </>
     );

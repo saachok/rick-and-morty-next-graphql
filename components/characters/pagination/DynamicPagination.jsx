@@ -1,6 +1,6 @@
 import PaginationButton from '@/components/UI/PaginationButton';
 
-const DynamicPagination = ({ pageNumber, goToPage }) => {
+const DynamicPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   return (
     <>
       <PaginationButton onClick={() => goToPage(1)}>1</PaginationButton>
@@ -23,7 +23,9 @@ const DynamicPagination = ({ pageNumber, goToPage }) => {
       <PaginationButton onClick={() => goToPage(pageNumber + 3)}>
         ...
       </PaginationButton>
-      <PaginationButton onClick={() => goToPage(42)}>42</PaginationButton>
+      <PaginationButton onClick={() => goToPage(pagesTotal)}>
+        {pagesTotal}
+      </PaginationButton>
     </>
   );
 };

@@ -15,7 +15,10 @@ import styles from '../../public/styles/characters/CharactersPage.module.scss';
 
 export default function Characters() {
   const [isLoading, setIsLoading] = useState(false);
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState({
+    results: [],
+    info: {},
+  });
 
   const router = useRouter();
   const pathname = usePathname();
@@ -27,8 +30,7 @@ export default function Characters() {
     const data = await client.request(getCharactersQuery, {
       page: pageNumber ? +pageNumber : 1,
     });
-    const { results } = data.characters;
-    return results;
+    return data.characters;
   }, [pageNumber]);
 
   useEffect(() => {
@@ -57,13 +59,17 @@ export default function Characters() {
       {characters && !isLoading ? (
         <>
           <div className={styles.grid}>
-            {characters.map(({ id, name, image, species }) => (
+            {characters.results.map(({ id, name, image, species }) => (
               <Link className={styles.link} key={id} href={`/character/${id}`}>
                 <CharacterCard {...{ name, image, species }} />
               </Link>
             ))}
           </div>
-          <CharactersPagination pageNumber={pageNumber} goToPage={goToPage} />
+          <CharactersPagination
+            pagesTotal={characters.info.pages}
+            pageNumber={pageNumber}
+            goToPage={goToPage}
+          />
         </>
       ) : (
         <Loading />

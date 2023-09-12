@@ -8,23 +8,17 @@
 
 .container {
   @include content-center();
-  display: none;
-}
-
-.nav {
-  @include content-center();
+  flex-direction: row;
   gap: 8px;
   margin-bottom: 1rem;
 }
 
-@media (min-width: $sm) {
-  .nav {
-    margin-bottom: 1.5rem;
-  }
+.text-info {
+  font-size: 24px;
 }
 
 @media (min-width: $sm) {
   .container {
-    display: flex;
+    display: none;
   }
 }
