@@ -1,0 +1,35 @@
+.container {
+  height: 100px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(91, 172, 73);
+  border-radius: 1rem;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.03);
+
+    .name {
+      color: rgb(167, 202, 84);
+    }
+  }
+}
+
+.name {
+  color: rgb(239, 242, 235);
+  font-size: 24px;
+  text-align: center;
+  transition: 0.2s;
+
+  // &:hover {
+  //   color: rgb(167, 202, 84);
+  // }
+}
+
+.air-date {
+  font-size: 20px;
+  color: rgb(239, 242, 235);
+}

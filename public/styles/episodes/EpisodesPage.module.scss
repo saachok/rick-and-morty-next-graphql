@@ -21,6 +21,11 @@
   }
 }
 
+.link {
+  text-decoration: none;
+  color: rgb(13, 13, 13);
+}
+
 @media (min-width: $sm) {
   .grid {
     gap: 1.5rem;

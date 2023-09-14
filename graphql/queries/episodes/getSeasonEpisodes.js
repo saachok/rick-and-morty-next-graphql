@@ -6,8 +6,8 @@ const getSeasonEpisodesQuery = gql`
       results {
         id
         name
-        air_date
         episode
+        air_date
       }
     }
   }

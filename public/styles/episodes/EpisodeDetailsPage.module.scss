@@ -1,0 +1,164 @@
+@import '../breakpoints';
+
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  padding-top: 1rem;
+  gap: 2rem;
+}
+
+.info-holder {
+  grid-column: 1;
+  grid-row: 1;
+  @include center-content();
+  padding: 1rem;
+
+  .info {
+    width: 300px;
+    @include center-content();
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgb(91, 172, 73);
+    color: rgb(239, 242, 235);
+
+    .title {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .detail {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.grid-holder {
+  grid-row: auto;
+  @include center-content();
+  flex-direction: column;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+  .grid-item {
+    @include center-content();
+
+    &:hover {
+      .link {
+        color: rgb(167, 202, 84);
+      }
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(239, 242, 235);
+}
+
+@media (min-width: $sm) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-holder {
+    grid-column: 1 / span 2;
+
+    .info {
+      width: 350px;
+    }
+  }
+
+  .grid-holder {
+    grid-column: 1 / span 2;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: $md) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .info-holder {
+    grid-column: 1 / span 3;
+
+    .info {
+      width: 600px;
+
+      .details {
+        grid-template-columns: 1fr 2fr;
+      }
+    }
+  }
+
+  .grid-holder {
+    grid-column: 1 / span 3;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $lg) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .info-holder {
+    grid-column: 2 / span 2;
+  }
+
+  .grid-holder {
+    grid-column: 1 / span 4;
+    .info {
+      width: 100%;
+    }
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: $xl) {
+  .container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .info-holder {
+    grid-column: 2 / span 3;
+  }
+
+  .grid-holder {
+    grid-column: 1 / span 5;
+  }
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
