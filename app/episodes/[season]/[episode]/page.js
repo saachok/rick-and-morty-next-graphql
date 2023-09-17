@@ -10,11 +10,20 @@ import Link from 'next/link';
 import CharacterCard from '@/components/characters/CharacterCard';
 
 import styles from '@/public/styles/episodes/EpisodeDetailsPage.module.scss';
+import CharacterCardSkeleton from '@/components/UI/skeletons/CharacterCardSkeleton';
 
 const EpisodePage = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [episodeInfo, setEpisodeInfo] = useState();
   const { season, episode } = props.params;
+
+  const renderSkeletons = () => {
+    const components = [];
+    for (let i = 0; i < 5; i++) {
+      components.push(<CharacterCardSkeleton key={i} />);
+    }
+    return components;
+  };
 
   const getEpisodeInfo = useCallback(async () => {
     const { episodes } = await client.request(getEpisodeDetails, {
@@ -37,7 +46,9 @@ const EpisodePage = props => {
   }, [getEpisodeInfo]);
 
   return (
-    <main className={styles.container}>
+    <main
+      className={episodeInfo ? styles.container : styles['container-loading']}
+    >
       {episodeInfo && !isLoading ? (
         <>
           <div className={styles['info-holder']}>
@@ -69,7 +80,9 @@ const EpisodePage = props => {
           </div>
         </>
       ) : (
-        <Loading />
+        <div className={styles['grid-holder']}>
+          <div className={styles.grid}>{renderSkeletons()}</div>
+        </div>
       )}
     </main>
   );
