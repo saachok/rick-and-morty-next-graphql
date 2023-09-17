@@ -14,6 +14,7 @@ import CharacterCardSkeleton from '@/components/UI/skeletons/CharacterCardSkelet
 
 const EpisodePage = props => {
   const [isLoading, setIsLoading] = useState(false);
+  // FIXME: add initial state
   const [episodeInfo, setEpisodeInfo] = useState();
   const { season, episode } = props.params;
 
@@ -31,6 +32,26 @@ const EpisodePage = props => {
     });
     return episodes.results[0];
   }, [season, episode]);
+
+  // FIXME: Add new useFetchData hook
+  // const useFetchData = (fetchData, handleData) => {
+  //   const [isLoading, setIsLoading] = useState(false);
+
+  //   useEffect(() => {
+  //     setIsLoading(true);
+  //     fetchData()
+  //       .then(data => {
+  //         handleData(data);
+  //         setIsLoading(false);
+  //       })
+  //       .catch(err => {
+  //         setIsLoading(false);
+  //         console.log(err);
+  //       });
+  //   }, []);
+
+  //   return { isLoading };
+  // };
 
   useEffect(() => {
     setIsLoading(true);

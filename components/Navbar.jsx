@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 
@@ -13,7 +13,13 @@ const Navbar = () => {
     setIsOpen(prev => !prev);
   };
 
-  window.addEventListener('scroll', () => setIsOpen(false));
+  useEffect(() => {
+    const handleScroll = () => setIsOpen(false);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <nav className={styles.navbar}>
