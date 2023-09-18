@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useFetchData } from '@/hooks/useFetchData';
 
 import getEpisodeDetails from '@/graphql/queries/episodes/getEpisodeDetails';
 import { client } from '@/graphql/graphql-client';
 
-import Loading from '@/components/UI/Loading';
 import Link from 'next/link';
 import CharacterCard from '@/components/characters/CharacterCard';
 
@@ -13,9 +13,8 @@ import styles from '@/public/styles/episodes/EpisodeDetailsPage.module.scss';
 import CharacterCardSkeleton from '@/components/UI/skeletons/CharacterCardSkeleton';
 
 const EpisodePage = props => {
-  const [isLoading, setIsLoading] = useState(false);
   // FIXME: add initial state
-  const [episodeInfo, setEpisodeInfo] = useState();
+  const { isLoading, data: episodeInfo } = useFetchData(getEpisodeInfo);
   const { season, episode } = props.params;
 
   const renderSkeletons = () => {
@@ -26,45 +25,12 @@ const EpisodePage = props => {
     return components;
   };
 
-  const getEpisodeInfo = useCallback(async () => {
+  async function getEpisodeInfo() {
     const { episodes } = await client.request(getEpisodeDetails, {
       filter: { episode: `${season}${episode}` },
     });
     return episodes.results[0];
-  }, [season, episode]);
-
-  // FIXME: Add new useFetchData hook
-  // const useFetchData = (fetchData, handleData) => {
-  //   const [isLoading, setIsLoading] = useState(false);
-
-  //   useEffect(() => {
-  //     setIsLoading(true);
-  //     fetchData()
-  //       .then(data => {
-  //         handleData(data);
-  //         setIsLoading(false);
-  //       })
-  //       .catch(err => {
-  //         setIsLoading(false);
-  //         console.log(err);
-  //       });
-  //   }, []);
-
-  //   return { isLoading };
-  // };
-
-  useEffect(() => {
-    setIsLoading(true);
-    getEpisodeInfo()
-      .then(data => {
-        setEpisodeInfo(data);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        setIsLoading(false);
-        console.log(err);
-      });
-  }, [getEpisodeInfo]);
+  }
 
   return (
     <main
