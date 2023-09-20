@@ -1,17 +1,29 @@
-import { client } from '../../../graphql/graphql-client';
-import getCharacterDetailsQuery from '@/graphql/queries/characters/getCharacterDetails';
+'use client';
+
+import { useFetchData } from '@/hooks/useFetchData';
+import { fetchCharacterInfo } from '@/functions/dataFetching';
+
 import styles from '../../../public/styles/characters/CharacterDetails.module.scss';
 import CharacterInfo from '@/components/characters/CharacterInfo';
+import CharacterInfoSkeleton from '@/components/UI/skeletons/CharacterInfoSkeleton';
 
-const CharacterDetails = async props => {
-  const { id } = props.params;
-  const { character } = await client.request(getCharacterDetailsQuery, {
-    characterId: id,
-  });
+const CharacterDetails = props => {
+  const getId = async () => {
+    const { id } = await props.params;
+    return id;
+  };
+
+  const { isLoading, data: character } = useFetchData(
+    async () => await fetchCharacterInfo(await getId())
+  );
 
   return (
     <main className={styles.container}>
-      <CharacterInfo {...character} />
+      {!isLoading ? (
+        <CharacterInfo {...character} />
+      ) : (
+        <CharacterInfoSkeleton />
+      )}
     </main>
   );
 };

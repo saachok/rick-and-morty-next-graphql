@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useFetchData = loadData => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
   useEffect(() => {

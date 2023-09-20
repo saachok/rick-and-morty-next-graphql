@@ -6,12 +6,6 @@
   align-items: center;
 }
 
-.container-loading {
-  height: 100%;
-  width: 100%;
-  @include center-content();
-}
-
 .container {
   display: grid;
   grid-template-columns: 1fr;
@@ -58,10 +52,6 @@
   grid-row: auto;
   @include center-content();
   flex-direction: column;
-
-  h1 {
-    font-size: 24px;
-  }
 }
 
 .grid {
@@ -102,10 +92,6 @@
 
   .grid-holder {
     grid-column: 1 / span 2;
-
-    h1 {
-      font-size: 30px;
-    }
   }
 
   .grid {

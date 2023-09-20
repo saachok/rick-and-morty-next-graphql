@@ -11,10 +11,13 @@
   padding: 1rem;
 }
 
-.link {
+.grid-item {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.link {
   text-decoration: none;
   color: rgb(239, 242, 235);
 

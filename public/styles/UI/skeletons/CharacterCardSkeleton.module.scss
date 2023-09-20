@@ -1,28 +1,7 @@
-.pulse {
-  $from: #f5f5f5;
-  $to: scale-color($from, $lightness: -10%);
+@import '../../breakpoints';
+@import '../skeletons/pulsation.scss';
 
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    -90deg,
-    rgb(176, 176, 176) 0%,
-    rgb(193, 192, 192) 50%,
-    rgb(176, 176, 176) 100%
-  );
-  background-size: 400% 400%;
-  animation: pulse 2s ease-in-out infinite;
-  @keyframes pulse {
-    0% {
-      background-position: 0% 0%;
-    }
-    100% {
-      background-position: -135% 0%;
-    }
-  }
-}
-
-.skeleton-card {
+.card {
   height: 355px;
   width: 266px;
   display: flex;
@@ -32,32 +11,39 @@
   padding-top: 0.5rem;
   background-color: lightgrey;
 
-  .skeleton-img {
+  .img {
     height: 250px;
     width: 250px;
     border-radius: 1rem;
     background-color: rgb(176, 176, 176);
   }
 
-  .skeleton-text-info {
-    height: 25%;
+  .text-info {
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 
-    .skeleton-name {
+    .name {
       height: 1rem;
       width: 200px;
       border-radius: 1rem;
       background-color: red;
     }
 
-    .skeleton-species {
+    .species {
       height: 1rem;
       width: 130px;
       border-radius: 1rem;
       background-color: grey;
     }
+  }
+}
+
+@media (min-width: $sm) {
+  .card {
+    height: 380px;
+    width: 266px;
   }
 }

@@ -11,19 +11,13 @@ import CharacterCard from '@/components/characters/CharacterCard';
 
 import styles from '@/public/styles/episodes/EpisodeDetailsPage.module.scss';
 import CharacterCardSkeleton from '@/components/UI/skeletons/CharacterCardSkeleton';
+import EpisodeInfoSkeleton from '@/components/UI/skeletons/EpisodeInfoSkeleton';
+
+const INITIAL_STATE = [1, 2, 3, 4, 5];
 
 const EpisodePage = props => {
-  // FIXME: add initial state
   const { isLoading, data: episodeInfo } = useFetchData(getEpisodeInfo);
   const { season, episode } = props.params;
-
-  const renderSkeletons = () => {
-    const components = [];
-    for (let i = 0; i < 5; i++) {
-      components.push(<CharacterCardSkeleton key={i} />);
-    }
-    return components;
-  };
 
   async function getEpisodeInfo() {
     const { episodes } = await client.request(getEpisodeDetails, {
@@ -33,12 +27,10 @@ const EpisodePage = props => {
   }
 
   return (
-    <main
-      className={episodeInfo ? styles.container : styles['container-loading']}
-    >
-      {episodeInfo && !isLoading ? (
-        <>
-          <div className={styles['info-holder']}>
+    <main className={styles.container}>
+      <div className={styles['info-holder']}>
+        {!isLoading ? (
+          <>
             <div className={styles.info}>
               <h1 className={styles.title}>{episodeInfo.name}</h1>
               <div className={styles.details}>
@@ -52,10 +44,17 @@ const EpisodePage = props => {
                 </p>
               </div>
             </div>
-          </div>
-          <div className={styles['grid-holder']}>
-            <h1>Characters in the episode:</h1>
-            <div className={styles.grid}>
+          </>
+        ) : (
+          <>
+            <EpisodeInfoSkeleton />
+          </>
+        )}
+      </div>
+      <div className={styles['grid-holder']}>
+        <div className={styles.grid}>
+          {!isLoading ? (
+            <>
               {episodeInfo.characters.map(({ id, name, image, species }) => (
                 <div key={id} className={styles['grid-item']}>
                   <Link className={styles.link} href={`/character/${id}`}>
@@ -63,14 +62,18 @@ const EpisodePage = props => {
                   </Link>
                 </div>
               ))}
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className={styles['grid-holder']}>
-          <div className={styles.grid}>{renderSkeletons()}</div>
+            </>
+          ) : (
+            <>
+              {INITIAL_STATE.map(elem => (
+                <div key={elem} className={styles['grid-item']}>
+                  <CharacterCardSkeleton />
+                </div>
+              ))}
+            </>
+          )}
         </div>
-      )}
+      </div>
     </main>
   );
 };

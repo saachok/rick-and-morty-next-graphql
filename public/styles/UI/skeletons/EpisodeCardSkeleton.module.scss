@@ -1,0 +1,26 @@
+@import '../skeletons/pulsation.scss';
+
+.container {
+  height: 100px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: lightgrey;
+
+  .name {
+    height: 1rem;
+    width: 220px;
+    border-radius: 1rem;
+    background-color: gray;
+  }
+
+  .air-date {
+    height: 0.7rem;
+    width: 130px;
+    border-radius: 0.7rem;
+    background-color: gray;
+  }
+}
