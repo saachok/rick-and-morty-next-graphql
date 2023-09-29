@@ -1,40 +1,48 @@
 import Image from 'next/image';
-import styles from '../../public/styles/characters/CharacterInfo.module.scss';
+import styles from '@/public/styles/characters/CharacterInfo.module.scss';
+import { getCapitalizedString } from '@/functions/dataFormatting';
 
-const CharacterInfo = ({
-  id,
-  image,
-  name,
-  gender,
-  species,
-  status,
-  type,
-  created,
-}) => {
-  const date = new Date(created);
+const CharacterInfo = ({ image, name, gender, species, status, created }) => {
+  const windowWidth =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+  const setImageSize = windowWidth => {
+    if (windowWidth >= 1200) return 500;
+    return 300;
+  };
+
+  const date = new Date(created).toDateString();
   return (
     <div className={styles.container}>
       <Image
         src={image}
         alt={name}
-        height={500}
-        width={500}
+        height={setImageSize(windowWidth)}
+        width={setImageSize(windowWidth)}
         className={styles.photo}
       />
-      <div className={styles.info}>
-        <div className={styles.key}>
-          <p className={styles.name}>Name</p>
-          <p className={styles.species}>Species</p>
-          <p>Gender</p>
-          <p>Created</p>
-          <p>Status</p>
+      <div className={styles['character-description']}>
+        <div>
+          <h2>Name</h2>
+          <h3>{name}</h3>
         </div>
-        <div className={styles.value}>
-          <p className={styles.name}>{name}</p>
-          <p className={styles.species}>{species}</p>
-          <p>{gender}</p>
-          <p>{date.toLocaleDateString()}</p>
-          <p>{status}</p>
+        <div>
+          <h2>Species</h2>
+          <h3>{species}</h3>
+        </div>
+        <div>
+          <h2>Gender</h2>
+          <h3>{gender && getCapitalizedString(gender)}</h3>
+        </div>
+        <div>
+          <h2>Created</h2>
+          <h3>{date}</h3>
+        </div>
+        <div>
+          <h2>Status</h2>
+          <h3>{status && getCapitalizedString(status)}</h3>
         </div>
       </div>
     </div>
