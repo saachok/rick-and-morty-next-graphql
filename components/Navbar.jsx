@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from '../public/styles/Navbar.module.scss';
 
@@ -23,6 +24,15 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
+      <Link href="/">
+        <Image
+          src="/assets/rick-sanchez-icon.png"
+          alt="Rick and Morty logo"
+          width={40}
+          height={40}
+          className={styles.img}
+        />
+      </Link>
       <div className={styles['menu-btn']} onClick={handleToggleMenu}>
         <span></span>
         <span></span>
