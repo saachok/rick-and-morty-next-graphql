@@ -1,4 +1,4 @@
-import PaginationButton from '@/components/UI/PaginationButton';
+import PaginationButton from '@/components/UI/pagination/PaginationButton';
 
 const ShortPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   return (

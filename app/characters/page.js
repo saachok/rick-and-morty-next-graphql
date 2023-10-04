@@ -6,7 +6,7 @@ import { createQueryString } from '@/functions/navigation';
 import { fetchCharacters } from '@/functions/dataFetching';
 
 import CharacterCard from '@/components/characters/CharacterCard';
-import CharactersPagination from '@/components/characters/CharactersPagination';
+import PaginationMenu from '@/components/UI/pagination/PaginationMenu';
 
 import styles from '../../public/styles/characters/CharactersPage.module.scss';
 import CharacterCardSkeleton from '@/components/UI/skeletons/CharacterCardSkeleton';
@@ -69,7 +69,7 @@ const Characters = () => {
         )}
       </div>
       {!isLoading && (
-        <CharactersPagination
+        <PaginationMenu
           pagesTotal={totalPages}
           pageNumber={pageNumber}
           goToPage={goToPage}

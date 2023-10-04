@@ -1,5 +1,5 @@
-import PaginationButton from '../../UI/PaginationButton';
-import styles from '../../../public/styles/UI/SmallScreenPagination.module.scss';
+import PaginationButton from './PaginationButton';
+import styles from '@/public/styles/UI/pagination/SmallScreenPagination.module.scss';
 
 const SmallScreenPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   return (

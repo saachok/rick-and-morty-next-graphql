@@ -5,12 +5,13 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { createQueryString } from '@/functions/navigation';
 import { fetchLocations } from '@/functions/dataFetching';
 
-import CharactersPagination from '@/components/characters/CharactersPagination';
+import PaginationMenu from '@/components/UI/pagination/PaginationMenu';
 
-import styles from '@/public/styles/locations/LocationsPage.module.scss';
 import LocationCard from '@/components/locations/LocationCard';
 import LocationCardSkeleton from '@/components/UI/skeletons/LocationCardSkeleton';
 import Link from 'next/link';
+
+import styles from '@/public/styles/locations/LocationsPage.module.scss';
 
 const INITIAL_STATE = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
@@ -64,7 +65,7 @@ const Locations = () => {
         )}
       </div>
       {!isLoading && (
-        <CharactersPagination
+        <PaginationMenu
           pagesTotal={totalPages}
           pageNumber={pageNumber}
           goToPage={goToPage}
