@@ -1,5 +1,6 @@
 import styles from '@/public/styles/locations/LocationInfo.module.scss';
 import CharacterCard from '../characters/CharacterCard';
+import CharacterList from './CharactersList';
 
 const LocationInfo = ({
   name,
@@ -26,11 +27,12 @@ const LocationInfo = ({
           <h3>{data}</h3>
         </div>
       </div>
-      <div className={styles.grid}>
+      <CharacterList characters={characters} />
+      {/* <div className={styles.grid}>
         {characters.map(character => (
           <CharacterCard key={character.id} {...character} />
         ))}
-      </div>
+      </div> */}
     </main>
   );
 };

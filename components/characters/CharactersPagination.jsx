@@ -4,6 +4,7 @@ import PaginationButton from '../UI/PaginationButton';
 import StaticPagination from './pagination/StaticPagination';
 import DynamicPagination from './pagination/DynamicPagination';
 import SmallScreenPagination from './pagination/SmallScreenPagination';
+import ShortPagination from './pagination/ShortPagination';
 
 const CharactersPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   return (
@@ -17,7 +18,9 @@ const CharactersPagination = ({ pagesTotal, pageNumber, goToPage }) => {
           >
             &#60;
           </PaginationButton>
-          {pageNumber < 6 ? (
+          {pagesTotal <= 7 ? (
+            <ShortPagination {...{ pagesTotal, pageNumber, goToPage }} />
+          ) : pageNumber < 6 ? (
             <StaticPagination {...{ pagesTotal, pageNumber, goToPage }} />
           ) : pageNumber < pagesTotal - 4 ? (
             <DynamicPagination {...{ pagesTotal, pageNumber, goToPage }} />

@@ -1,0 +1,42 @@
+@import '../breakpoints';
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  place-items: center;
+}
+
+.empty-list {
+  text-align: center;
+  width: 266px;
+}
+
+@media (min-width: $sm) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .empty-list {
+    width: 100%;
+  }
+}
+
+@media (min-width: $md) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $lg) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: $xl) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
