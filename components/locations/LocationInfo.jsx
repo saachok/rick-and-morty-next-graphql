@@ -1,6 +1,5 @@
 import styles from '@/public/styles/locations/LocationInfo.module.scss';
 import CharacterCard from '../characters/CharacterCard';
-import Link from 'next/link';
 
 const LocationInfo = ({
   name,
@@ -10,7 +9,6 @@ const LocationInfo = ({
   residents: characters,
 }) => {
   const data = new Date(created).toDateString();
-  console.log(characters);
   return (
     <main className={styles.container}>
       <div className={styles.info}>
@@ -29,10 +27,8 @@ const LocationInfo = ({
         </div>
       </div>
       <div className={styles.grid}>
-        {characters.map(({ id, ...rest }) => (
-          <Link key={id} href={`/character/${id}`} className={styles.link}>
-            <CharacterCard {...rest} />
-          </Link>
+        {characters.map(character => (
+          <CharacterCard key={character.id} {...character} />
         ))}
       </div>
     </main>

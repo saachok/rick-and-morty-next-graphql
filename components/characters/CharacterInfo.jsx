@@ -18,7 +18,7 @@ const CharacterInfo = ({ image, name, gender, species, status, created }) => {
     <div className={styles.container}>
       <Image
         src={image}
-        alt={name}
+        alt={`Photo of ${name}`}
         height={setImageSize(windowWidth)}
         width={setImageSize(windowWidth)}
         className={styles.photo}

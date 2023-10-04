@@ -17,15 +17,6 @@
   align-items: center;
 }
 
-.link {
-  text-decoration: none;
-  color: rgb(239, 242, 235);
-
-  &:hover {
-    color: rgb(167, 202, 84);
-  }
-}
-
 @media (min-width: $sm) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

@@ -1,7 +1,6 @@
 import styles from '../../public/styles/episodes/EpisodeCard.module.scss';
 
-const EpisodeCard = ({ id, name, episode, air_date }) => {
-  // console.log(episode.slice(3));
+const EpisodeCard = ({ name, air_date }) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.name}>{name}</h1>

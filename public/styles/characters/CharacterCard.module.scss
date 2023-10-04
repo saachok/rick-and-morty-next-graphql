@@ -43,6 +43,11 @@
   font-size: 20px;
 }
 
+.link {
+  text-decoration: none;
+  border-radius: 1rem;
+}
+
 @media (min-width: $sm) {
   .container {
     height: 380px;

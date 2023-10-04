@@ -63,18 +63,7 @@
 
   .grid-item {
     @include center-content();
-
-    &:hover {
-      .link {
-        color: rgb(167, 202, 84);
-      }
-    }
   }
-}
-
-.link {
-  text-decoration: none;
-  color: rgb(239, 242, 235);
 }
 
 @media (min-width: $sm) {

@@ -5,7 +5,6 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { createQueryString } from '@/functions/navigation';
 import { fetchCharacters } from '@/functions/dataFetching';
 
-import Link from 'next/link';
 import CharacterCard from '@/components/characters/CharacterCard';
 import CharactersPagination from '@/components/characters/CharactersPagination';
 
@@ -53,11 +52,9 @@ const Characters = () => {
       <div className={styles.grid}>
         {!isLoading ? (
           <>
-            {characters.map(({ id, name, image, species }) => (
-              <div key={id} className={styles['grid-item']}>
-                <Link className={styles.link} href={`/character/${id}`}>
-                  <CharacterCard {...{ name, image, species }} />
-                </Link>
+            {characters.map(character => (
+              <div key={character.id} className={styles['grid-item']}>
+                <CharacterCard {...character} />
               </div>
             ))}
           </>

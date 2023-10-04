@@ -1,12 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
 import { useFetchData } from '@/hooks/useFetchData';
 
 import getEpisodeDetails from '@/graphql/queries/episodes/getEpisodeDetails';
 import { client } from '@/graphql/graphql-client';
 
-import Link from 'next/link';
 import CharacterCard from '@/components/characters/CharacterCard';
 
 import styles from '@/public/styles/episodes/EpisodeDetailsPage.module.scss';
@@ -55,11 +53,9 @@ const EpisodePage = props => {
         <div className={styles.grid}>
           {!isLoading ? (
             <>
-              {episodeInfo.characters.map(({ id, name, image, species }) => (
-                <div key={id} className={styles['grid-item']}>
-                  <Link className={styles.link} href={`/character/${id}`}>
-                    <CharacterCard {...{ name, image, species }} />
-                  </Link>
+              {episodeInfo.characters.map(character => (
+                <div key={character.id} className={styles['grid-item']}>
+                  <CharacterCard {...character} />
                 </div>
               ))}
             </>
