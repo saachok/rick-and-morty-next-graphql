@@ -1,7 +1,9 @@
 import getCharactersQuery from '@/graphql/queries/characters/getCharacters';
+import getLocations from '@/graphql/queries/locations/getLocationsQuery';
 import getCharacterDetailsQuery from '@/graphql/queries/characters/getCharacterDetails';
 import getSeasonsAmount from '@/graphql/queries/episodes/getSeasonsAmount';
 import getSeasonEpisodesQuery from '@/graphql/queries/episodes/getSeasonEpisodes';
+import getLocationInfo from '@/graphql/queries/locations/getLocationInfo';
 import { client } from '@/graphql/graphql-client';
 
 export const encodeName = inputString => {
@@ -41,4 +43,18 @@ export const getEpisodes = async season => {
     filter: { episode: season },
   });
   return episodes.results;
+};
+
+export const fetchLocations = async pageNumber => {
+  const data = await client.request(getLocations, {
+    page: pageNumber ? +pageNumber : 1,
+  });
+  return data.locations;
+};
+
+export const fetchLocationInfo = async id => {
+  const { location } = await client.request(getLocationInfo, {
+    locationId: id,
+  });
+  return location;
 };

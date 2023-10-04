@@ -1,0 +1,39 @@
+@import '../skeletons/pulsation.scss';
+
+@mixin h2-skeleton {
+  height: 20px;
+  border-radius: 1rem;
+}
+
+.container {
+  width: 380px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: lightgrey;
+  border-radius: 1rem;
+}
+
+.name {
+  height: 28px;
+  width: 300px;
+  border-radius: 1rem;
+}
+
+.dimension {
+  @include h2-skeleton();
+  width: 230px;
+}
+
+.type {
+  @include h2-skeleton();
+  width: 120px;
+}
+
+.created {
+  @include h2-skeleton();
+  width: 180px;
+}

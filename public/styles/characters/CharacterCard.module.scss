@@ -13,6 +13,10 @@
 
   &:hover {
     transform: scale(1.03);
+
+    .text-info {
+      color: rgb(167, 202, 84);
+    }
   }
 }
 
@@ -26,6 +30,8 @@
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  color: rgb(239, 242, 235);
+  transition: 0.2s ease;
 }
 
 .name {

@@ -1,9 +1,77 @@
-import React from 'react';
+'use client';
 
-export default function Locations() {
+import { useState, useEffect } from 'react';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { createQueryString } from '@/functions/navigation';
+import { fetchLocations } from '@/functions/dataFetching';
+
+import CharactersPagination from '@/components/characters/CharactersPagination';
+
+import styles from '@/public/styles/locations/LocationsPage.module.scss';
+import LocationCard from '@/components/locations/LocationCard';
+import LocationCardSkeleton from '@/components/UI/skeletons/LocationCardSkeleton';
+import Link from 'next/link';
+
+const INITIAL_STATE = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+
+const Locations = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [locations, setLocations] = useState([]);
+  const [totalPages, setTotalPages] = useState();
+  let pageNumber = +searchParams.get('page') ? +searchParams.get('page') : 1;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const { results, info } = await fetchLocations(pageNumber);
+        setLocations(results);
+        setTotalPages(info.pages);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [pageNumber]);
+
+  const goToPage = pageNumber => {
+    router.push(
+      pathname + '?' + createQueryString(searchParams, 'page', pageNumber)
+    );
+  };
+
+  if (pageNumber < 1) goToPage(1);
+
   return (
-    <main>
-      <h1>That's Locations page!</h1>
+    <main className={styles.container}>
+      <div className={styles.grid}>
+        {!isLoading && locations.length ? (
+          <>
+            {locations.map(({ id, ...rest }) => (
+              <Link key={id} href={`location/${id}`} className={styles.link}>
+                <LocationCard {...rest} />
+              </Link>
+            ))}
+          </>
+        ) : (
+          INITIAL_STATE.map(({ id }) => <LocationCardSkeleton key={id} />)
+        )}
+      </div>
+      {!isLoading && (
+        <CharactersPagination
+          pagesTotal={totalPages}
+          pageNumber={pageNumber}
+          goToPage={goToPage}
+        />
+      )}
     </main>
   );
-}
+};
+
+export default Locations;

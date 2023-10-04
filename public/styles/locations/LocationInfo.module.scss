@@ -1,0 +1,99 @@
+@import '../breakpoints';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  padding: 1rem;
+  gap: 1rem;
+  place-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 266px;
+  height: 200px;
+  grid-column: 1 / span 1;
+  border-radius: 1rem;
+  color: rgb(239, 242, 235);
+  background-color: rgb(91, 172, 73);
+
+  .name {
+    font-size: 30px;
+  }
+
+  .desc {
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  place-items: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (min-width: $sm) {
+  .container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .info {
+    width: 400px;
+
+    .name {
+      font-size: 34px;
+    }
+
+    .desc {
+      font-size: 20px;
+      padding: 0 2rem;
+    }
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: $md) {
+  .info {
+    width: 600px;
+
+    .desc {
+      padding: 0 8rem;
+    }
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $lg) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: $xl) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
