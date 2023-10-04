@@ -1,4 +1,4 @@
-import styles from '../../public/styles/UI/PaginationButton.module.scss';
+import styles from '@/public/styles/UI/pagination/PaginationButton.module.scss';
 
 const PaginationButton = props => {
   return (

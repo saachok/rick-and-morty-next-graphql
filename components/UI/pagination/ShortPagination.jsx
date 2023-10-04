@@ -1,4 +1,8 @@
+<<<<<<< HEAD:components/characters/pagination/ShortPagination.jsx
 import PaginationButton from '@/components/UI/PaginationButton';
+=======
+import PaginationButton from '@/components/UI/pagination/PaginationButton';
+>>>>>>> feat/pagination:components/UI/pagination/ShortPagination.jsx
 
 const ShortPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   return (

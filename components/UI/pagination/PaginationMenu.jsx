@@ -1,12 +1,20 @@
-import styles from '../../public/styles/characters/CharactersPagination.module.scss';
+import styles from '@/public/styles/UI/pagination/PaginationMenu.module.scss';
 
+<<<<<<< HEAD:components/characters/CharactersPagination.jsx
 import PaginationButton from '../UI/PaginationButton';
 import StaticPagination from './pagination/StaticPagination';
 import DynamicPagination from './pagination/DynamicPagination';
 import SmallScreenPagination from './pagination/SmallScreenPagination';
 import ShortPagination from './pagination/ShortPagination';
+=======
+import PaginationButton from './PaginationButton';
+import StaticPagination from './StaticPagination';
+import DynamicPagination from './DynamicPagination';
+import SmallScreenPagination from './SmallScreenPagination';
+import ShortPagination from './ShortPagination';
+>>>>>>> feat/pagination:components/UI/pagination/PaginationMenu.jsx
 
-const CharactersPagination = ({ pagesTotal, pageNumber, goToPage }) => {
+const PaginationMenu = ({ pagesTotal, pageNumber, goToPage }) => {
   return (
     <>
       <SmallScreenPagination {...{ pagesTotal, pageNumber, goToPage }} />
@@ -39,4 +47,4 @@ const CharactersPagination = ({ pagesTotal, pageNumber, goToPage }) => {
   );
 };
 
-export default CharactersPagination;
+export default PaginationMenu;
