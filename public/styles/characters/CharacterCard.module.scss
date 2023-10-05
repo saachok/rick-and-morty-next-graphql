@@ -1,7 +1,7 @@
 @import '../breakpoints';
 
 .container {
-  height: 355px;
+  height: 380px;
   width: 266px;
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@
 
 @media (min-width: $sm) {
   .container {
-    height: 380px;
+    height: 400px;
     width: 266px;
   }
 
