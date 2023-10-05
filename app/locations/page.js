@@ -9,7 +9,6 @@ import PaginationMenu from '@/components/UI/pagination/PaginationMenu';
 
 import LocationCard from '@/components/locations/LocationCard';
 import LocationCardSkeleton from '@/components/UI/skeletons/LocationCardSkeleton';
-import Link from 'next/link';
 
 import styles from '@/public/styles/locations/LocationsPage.module.scss';
 
@@ -55,9 +54,7 @@ const Locations = () => {
         {!isLoading && locations.length ? (
           <>
             {locations.map(({ id, ...rest }) => (
-              <Link key={id} href={`location/${id}`} className={styles.link}>
-                <LocationCard {...rest} />
-              </Link>
+              <LocationCard key={id} href={`location/${id}`} {...rest} />
             ))}
           </>
         ) : (

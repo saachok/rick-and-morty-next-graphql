@@ -2,9 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-// import { useFetchData } from '@/hooks/useFetchData';
-// import { getEpisodes } from '@/functions/dataFetching';
-
 import getSeasonEpisodesQuery from '../../../graphql/queries/episodes/getSeasonEpisodes';
 import { client } from '../../../graphql/graphql-client';
 import EpisodeCard from '@/components/episodes/EpisodeCard';
@@ -22,14 +19,6 @@ const SeasonPage = props => {
   const [episodes, setEpisodes] = useState([]);
   const { season } = props.params;
 
-  // const getSeasonNumber = async () => {
-  //   const { season } = await props.params;
-  //   return season;
-  // };
-
-  // const { isLoading, data: episodes = [] } = useFetchData(async () => {
-  //   await getEpisodes(await getSeasonNumber());
-  // });
   const getEpisodes = useCallback(async () => {
     const { episodes } = await client.request(getSeasonEpisodesQuery, {
       filter: { episode: season },
@@ -56,14 +45,11 @@ const SeasonPage = props => {
         {!isLoading ? (
           <>
             {episodes.map(({ id, name, episode, air_date }) => (
-              <div key={id} className={styles['grid-item']}>
-                <Link
-                  href={getEpisodePath(season, episode)}
-                  className={styles.link}
-                >
-                  <EpisodeCard {...{ id, name, episode, air_date }} />
-                </Link>
-              </div>
+              <EpisodeCard
+                key={id}
+                href={getEpisodePath(season, episode)}
+                {...{ id, name, episode, air_date }}
+              />
             ))}
           </>
         ) : (

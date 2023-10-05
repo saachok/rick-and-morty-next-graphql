@@ -1,35 +1,25 @@
 @import '../breakpoints';
 
 .container {
-  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  // justify-content: center;
   align-items: center;
 }
 
 .grid {
-  height: 100%;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
   padding: 1rem;
-
-  .grid-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.link {
-  text-decoration: none;
-  border-radius: 1rem;
+  place-items: center;
 }
 
 @media (min-width: 690px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 }
 

@@ -3,7 +3,6 @@
 import { useFetchData } from '@/hooks/useFetchData';
 import { fetchSeasons } from '@/functions/dataFetching';
 
-import Link from 'next/link';
 import SeasonCard from '@/components/episodes/SeasonCard';
 import SeasonCardSkeleton from '@/components/UI/skeletons/SeasonCardSkeleton';
 
@@ -19,24 +18,14 @@ export default function Episodes() {
       <div className={styles.grid}>
         {!isLoading ? (
           <>
-            {seasons.map((elem, seasonIndex) => (
-              <div className={styles['grid-item']} key={seasonIndex + 1}>
-                <Link
-                  key={seasonIndex}
-                  href={`/episodes/s0${seasonIndex + 1}`}
-                  className={styles.link}
-                >
-                  <SeasonCard seasonIndex={seasonIndex + 1} />
-                </Link>
-              </div>
+            {seasons.map((_, seasonIndex) => (
+              <SeasonCard seasonIndex={seasonIndex + 1} key={seasonIndex} />
             ))}
           </>
         ) : (
           <>
-            {INITIAL_STATE.map((elem, seasonIndex) => (
-              <div className={styles['grid-item']} key={seasonIndex + 1}>
-                <SeasonCardSkeleton />
-              </div>
+            {INITIAL_STATE.map((_, seasonIndex) => (
+              <SeasonCardSkeleton key={seasonIndex + 1} />
             ))}
           </>
         )}

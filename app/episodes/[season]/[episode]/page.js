@@ -54,17 +54,13 @@ const EpisodePage = props => {
           {!isLoading ? (
             <>
               {episodeInfo.characters.map(character => (
-                <div key={character.id} className={styles['grid-item']}>
-                  <CharacterCard {...character} />
-                </div>
+                <CharacterCard key={character.id} {...character} />
               ))}
             </>
           ) : (
             <>
               {INITIAL_STATE.map(elem => (
-                <div key={elem} className={styles['grid-item']}>
-                  <CharacterCardSkeleton />
-                </div>
+                <CharacterCardSkeleton key={elem} />
               ))}
             </>
           )}

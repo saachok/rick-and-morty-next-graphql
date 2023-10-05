@@ -1,4 +1,9 @@
 @import '../breakpoints';
+.link {
+  transition: 0.2s;
+  text-decoration: none;
+  color: rgb(13, 13, 13);
+}
 
 .container {
   height: 200px;

@@ -10,15 +10,14 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  padding-top: 1rem;
-  gap: 2rem;
+  margin-top: 1rem;
+  gap: 1rem;
 }
 
 .info-holder {
   grid-column: 1;
   grid-row: 1;
   @include center-content();
-  padding: 1rem;
 
   .info {
     width: 300px;
@@ -55,20 +54,15 @@
 }
 
 .grid {
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  padding: 1rem;
-
-  .grid-item {
-    @include center-content();
-  }
 }
 
 @media (min-width: $sm) {
   .container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .info-holder {
@@ -86,7 +80,6 @@
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    padding: 1.5rem;
   }
 }
 
