@@ -11,10 +11,14 @@
   flex-direction: row;
   gap: 8px;
   margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgb(91, 172, 73);
+  padding: 0.5rem;
 }
 
 .text-info {
   font-size: 24px;
+  color: rgb(239, 242, 235);
 }
 
 @media (min-width: $sm) {
