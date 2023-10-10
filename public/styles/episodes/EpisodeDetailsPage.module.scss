@@ -10,8 +10,23 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  margin-top: 1rem;
+  padding: 1rem 0;
   gap: 1rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: url('/assets/pages bg/space/green-space-laptop-2.jpg');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
 }
 
 .info-holder {

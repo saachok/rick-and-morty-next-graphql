@@ -5,7 +5,6 @@ import { useState, useEffect, useCallback } from 'react';
 import getSeasonEpisodesQuery from '../../../graphql/queries/episodes/getSeasonEpisodes';
 import { client } from '../../../graphql/graphql-client';
 import EpisodeCard from '@/components/episodes/EpisodeCard';
-import Link from 'next/link';
 
 import { getEpisodePath } from '@/functions/navigation';
 

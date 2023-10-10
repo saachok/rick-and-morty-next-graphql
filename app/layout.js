@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
           <div className={styles.navbar}>
             <Navbar />
           </div>
-          <div>{children}</div>
+          {children}
           <div className={styles.footer}>
             <Footer />
           </div>
