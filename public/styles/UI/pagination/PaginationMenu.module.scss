@@ -15,6 +15,9 @@
   @include content-center();
   gap: 8px;
   margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(91, 172, 73);
 }
 
 @media (min-width: $sm) {
