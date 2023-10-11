@@ -47,7 +47,7 @@
     color: rgb(239, 242, 235);
 
     .title {
-      font-size: 26px;
+      font-size: 24px;
       text-align: center;
     }
 
@@ -115,10 +115,6 @@
 
       .details {
         grid-template-columns: 1fr 2fr;
-
-        .detail {
-          font-size: 24px;
-        }
       }
     }
   }

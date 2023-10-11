@@ -10,17 +10,10 @@ export const metadata = {
     'This project is built using Next.js and Apollo Client to interact with the Rick and Morty API. It allows users to explore characters, episodes, and locations from the popular TV series "Rick and Morty."',
 };
 
-import { Roboto } from 'next/font/google';
-
-const roboto = Roboto({
-  weight: '400',
-  subsets: ['latin'],
-});
-
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${styles.body} ${roboto.className}`}>
+      <body className={styles.body}>
         <main className={styles.main}>
           <div className={styles.navbar}>
             <Navbar />
