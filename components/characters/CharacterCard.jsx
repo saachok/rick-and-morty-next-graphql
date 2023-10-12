@@ -14,8 +14,8 @@ const CharacterCard = ({ id, name, image, species }) => {
           height={250}
         />
         <div className={styles['text-info']}>
-          <h1 className={styles.name}>{name}</h1>
-          <h2 className={styles.species}>{species}</h2>
+          <h2 className={styles.name}>{name}</h2>
+          <p className={styles.species}>{species}</p>
         </div>
       </div>
     </Link>

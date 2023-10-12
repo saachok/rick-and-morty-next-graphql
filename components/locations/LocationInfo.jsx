@@ -14,16 +14,16 @@ const LocationInfo = ({
       <div className={styles.info}>
         <h3 className={styles.name}>{name}</h3>
         <div className={styles.desc}>
-          <h3>Dimesion</h3>
-          <h3>{dimesion ?? 'Unknown'}</h3>
+          <p>Dimesion</p>
+          <p>{dimesion ?? 'Unknown'}</p>
         </div>
         <div className={styles.desc}>
-          <h3>Type</h3>
-          <h3>{type ?? 'Unknown'}</h3>
+          <p>Type</p>
+          <p>{type ?? 'Unknown'}</p>
         </div>
         <div className={styles.desc}>
-          <h3>Created</h3>
-          <h3>{data}</h3>
+          <p>Created</p>
+          <p>{data}</p>
         </div>
       </div>
       <CharacterList characters={characters} />

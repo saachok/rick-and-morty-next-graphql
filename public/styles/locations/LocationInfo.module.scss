@@ -1,6 +1,7 @@
 @import '../breakpoints';
 
 .container {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
@@ -8,6 +9,10 @@
   gap: 1rem;
   place-items: center;
   position: relative;
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   &::before {
     content: '';
     background-image: url('/assets/pages bg/space/green-space-laptop-5.jpg');
@@ -28,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 12px;
   width: 266px;
   height: 200px;
@@ -37,11 +43,11 @@
   background-color: rgb(91, 172, 73);
 
   .name {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .desc {
-    font-size: 1rem;
+    font-size: 16px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -71,7 +77,8 @@
     }
 
     .desc {
-      font-size: 20px;
+      font-size: 24px;
+      font-weight: 500;
       padding: 0 2rem;
     }
   }

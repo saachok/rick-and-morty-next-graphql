@@ -34,7 +34,7 @@ const EpisodePage = props => {
               <div className={styles.details}>
                 <p className={styles.detail}>Season: {season.slice(1)}</p>
                 <p className={styles.detail}>
-                  Episode number in the row: {episodeInfo.id}
+                  Episode in the row: {episodeInfo.id}
                 </p>
                 <p className={styles.detail}>Episode: {episode.slice(1)}</p>
                 <p className={styles.detail}>
