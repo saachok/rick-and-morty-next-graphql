@@ -1,0 +1,32 @@
+@import '../breakpoints';
+
+.trailer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  h2 {
+    font-size: 20px;
+    color: rgb(239, 242, 235);
+  }
+}
+
+@media (min-width: $sm) {
+  .trailer {
+    width: 310px;
+  }
+}
+
+@media (min-width: 690px) {
+  .trailer {
+    width: calc(310px * 2 + 1.5rem);
+  }
+}
+
+@media (min-width: $xl) {
+  .trailer {
+    width: calc(340px * 2 + 1.5rem);
+  }
+}

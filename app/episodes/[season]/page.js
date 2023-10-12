@@ -7,11 +7,12 @@ import { client } from '../../../graphql/graphql-client';
 import EpisodeCard from '@/components/episodes/EpisodeCard';
 
 import { getEpisodePath } from '@/functions/navigation';
+import { INITIAL_EPISODES } from '@/constants';
 
 import styles from '../../../public/styles/episodes/SeasonPage.module.scss';
 import EpisodeCardSkeleton from '@/components/UI/skeletons/EpisodeCardSkeleton';
-
-const INITIAL_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+import SeasonTrailer from '@/components/episodes/SeasonTrailer';
+import SeasonTrailerSkeleton from '@/components/UI/skeletons/SeasonTrailerSkeleton';
 
 const SeasonPage = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,6 +41,11 @@ const SeasonPage = props => {
 
   return (
     <main className={styles.container}>
+      {!isLoading ? (
+        <SeasonTrailer season={season} />
+      ) : (
+        <SeasonTrailerSkeleton />
+      )}
       <div className={styles.grid}>
         {!isLoading ? (
           <>
@@ -53,8 +59,8 @@ const SeasonPage = props => {
           </>
         ) : (
           <>
-            {INITIAL_STATE.map(elem => (
-              <div key={elem} className={styles['grid-item']}>
+            {INITIAL_EPISODES.map(id => (
+              <div key={id} className={styles['grid-item']}>
                 <EpisodeCardSkeleton />
               </div>
             ))}

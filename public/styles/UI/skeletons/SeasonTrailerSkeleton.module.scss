@@ -1,0 +1,49 @@
+@import '../../breakpoints';
+@import 'pulsation.scss';
+
+.trailer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  h2 {
+    height: 1rem;
+    width: 250px;
+    border-radius: 1rem;
+  }
+
+  span {
+    width: 300px;
+    height: 150px;
+    border-radius: 1rem;
+    background-color: lightgrey;
+  }
+}
+
+@media (min-width: $sm) {
+  .trailer {
+    span {
+      width: 310px;
+    }
+  }
+}
+
+@media (min-width: 690px) {
+  .trailer {
+    span {
+      width: calc(310px * 2 + 1.5rem);
+      height: 362px;
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  .trailer {
+    span {
+      width: calc(340px * 2 + 1.5rem);
+      height: 396;
+    }
+  }
+}
