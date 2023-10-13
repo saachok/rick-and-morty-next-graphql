@@ -13,15 +13,29 @@
   }
 }
 
+.loading {
+  position: absolute;
+  top: 125px;
+  font-size: 20px;
+  color: rgb(239, 242, 235);
+}
+
 @media (min-width: $sm) {
   .trailer {
     width: 310px;
+  }
+  .loading {
+    top: 110px;
   }
 }
 
 @media (min-width: 690px) {
   .trailer {
     width: calc(310px * 2 + 1.5rem);
+  }
+  .loading {
+    top: 225px;
+    font-size: 24px;
   }
 }
 
