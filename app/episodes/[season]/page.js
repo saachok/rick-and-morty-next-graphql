@@ -12,7 +12,6 @@ import { INITIAL_EPISODES } from '@/constants';
 import styles from '../../../public/styles/episodes/SeasonPage.module.scss';
 import EpisodeCardSkeleton from '@/components/UI/skeletons/EpisodeCardSkeleton';
 import SeasonTrailer from '@/components/episodes/SeasonTrailer';
-import SeasonTrailerSkeleton from '@/components/UI/skeletons/SeasonTrailerSkeleton';
 
 const SeasonPage = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,11 +40,7 @@ const SeasonPage = props => {
 
   return (
     <main className={styles.container}>
-      {!isLoading ? (
-        <SeasonTrailer season={season} />
-      ) : (
-        <SeasonTrailerSkeleton />
-      )}
+      <SeasonTrailer season={season} />
       <div className={styles.grid}>
         {!isLoading ? (
           <>
