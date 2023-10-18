@@ -4,6 +4,10 @@ import Navbar from '@/components/Navbar';
 import styles from '../public/styles/layout.module.scss';
 import Footer from '@/components/Footer';
 
+import { Alkatra } from 'next/font/google';
+
+const alkatra = Alkatra({ weight: ['400'], subsets: ['latin'] });
+
 export const metadata = {
   title: 'Rick and Morty GraphQL App',
   description:
@@ -13,7 +17,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={styles.body}>
+      <body className={`${alkatra.className} ${styles.body}`}>
         <main className={styles.main}>
           <div className={styles.navbar}>
             <Navbar />
